@@ -2,8 +2,6 @@
 .header {
   // .header__top
   &__top {
-    background-color: $mainDarkColor;
-    color: #fff;
   }
   // .header__body
   &__body {
@@ -13,9 +11,14 @@
   }
 }
 .top-header {
+  background-color: $mainDarkColor;
+  color: #fff;
+  padding: rem(10) 0;
   &__container {
     display: flex;
     align-items: center;
+    gap: rem(20);
+    min-height: rem(50);
   }
   // .top-header__menu
   &__menu {
@@ -23,8 +26,24 @@
   }
   // .top-header__user
   &__user {
+    display: inline-flex;
+    align-items: center;
+    font-weight: 600;
+    line-height: math.div(22, 18);
+    &::before {
+      font-size: rem(28);
+      margin-right: em(15, 28);
+    }
+    @media (any-hover: hover) {
+      &:hover {
+        span {
+          text-decoration: underline;
+        }
+      }
+    }
   }
 }
+//========================================================================================================================================================
 .menu {
   // .menu__body
   &__body {
@@ -33,8 +52,8 @@
   &__list {
     display: flex;
     flex-wrap: wrap;
-    @include adaptiveValue("gap", 60, 20);
-    //1.22.32
+    row-gap: 5px;
+    @include adaptiveValue("column-gap", 60, 20);
   }
   // .menu__item
   &__item {
@@ -42,15 +61,329 @@
   // .menu__link
   &__link {
     font-size: rem(16);
+    line-height: math.div(20, 16);
+    @media (any-hover: hover) {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
 }
-.icon-menu {
-}
+//========================================================================================================================================================
 .body-header {
+  padding: rem(10) 0;
+  background-color: #ecf1f2;
+  // .body-header__container
+  &__container {
+    display: flex;
+    min-height: rem(70);
+    align-items: center;
+  }
+  // .body-header__logo
+  &__logo {
+    @extend %ic;
+    @extend ._icon-logo;
+    font-size: rem(42);
+    color: $mainDarkColor;
+  }
+  // .body-header__search
+  &__search {
+    flex: 1 1 auto;
+    padding-right: rem(20);
+    @include adaptiveValue("padding-left", 158, 20);
+  }
+  // .body-header__actions
+  &__actions {
+  }
 }
+.search-header {
+  max-width: rem(377);
+  background-color: rgba(7, 7, 7, 0.03);
+  border-radius: 3px;
+  position: relative;
+  border: 1px solid rgba(4, 4, 4, 0.5);
+  // .search-header__button
+  &__button {
+    position: absolute;
+    background-color: transparent;
+    width: rem(41);
+    height: rem(41);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: rem(8);
+    top: 0;
+    font-size: rem(14);
+    color: rgba(0, 0, 0, 0.5);
+  }
+  // .search-header__input
+  &__input {
+    width: 100%;
+    background-color: transparent;
+    border-radius: rem(3);
+    height: rem(41);
+    padding: 0px rem(20) 0px rem(50);
+    color: $mainColor;
+    &::placeholder {
+      color: rgba(0, 0, 0, 0.5);
+    }
+  }
+}
+//========================================================================================================================================================
+.actions-header {
+  display: flex;
+  align-items: center;
+  column-gap: rem(30);
+  // .actions-header__location
+  &__location {
+    display: inline-flex;
+    align-items: center;
+    font-weight: 600;
+    margin: 0px rem(25) 0px 0px;
+    &::before {
+      font-size: rem(24);
+      margin: 0px em(10, 24) 0px 0px;
+    }
+    @media (any-hover: hover) {
+      &:hover {
+        span {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+  // .actions-header__phones
+  &__phones {
+  }
+  // .actions-header__favorite
+  &__favorite {
+    font-size: rem(27);
+  }
+  // .actions-header__cart
+  &__cart {
+  }
+}
+.phones-header {
+  // .phones-header__items
+  &__items {
+  }
+  // .phones-header__item
+  &__item {
+    position: relative;
+    display: flex;
+  }
+  // .phones-header__phone
+  &__phone {
+    font-weight: 600;
+    white-space: nowrap;
+    line-height: math.div(22, 18);
+  }
+  // .phones-header__arrow
+  &__arrow {
+    color: $mainOrange;
+    font-size: rem(10);
+    margin: 0px 0px 0px em(17, 16);
+    transition: transform 0.3s ease 0s;
+    &._spoller-active {
+      transform: rotate(-180deg);
+    }
+  }
+  // .phones-header__list
+  &__list {
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    left: 0;
+    margin: rem(5) 0px 0px 0px;
+    border-radius: rem(10);
+    background-color: #fff;
+    padding: rem(15);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    li {
+      &:not(:last-child) {
+        margin-bottom: em(8, 18);
+      }
+    }
+  }
+  // .phones-header__callback
+  &__callback {
+    margin: rem(3) 0px 0px 0px;
+    color: $mainOrange;
+    font-weight: 700;
+    line-height: math.div(22, 18);
+    @media (any-hover: hover) {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+.cart-header {
+  display: flex;
+  align-items: center;
+  column-gap: 15px;
+  // .cart-header__icon
+  &__icon {
+    flex: 0 0 37px;
+    font-size: rem(35);
+    position: relative;
+    span {
+      position: absolute;
+      width: rem(14);
+      height: rem(14);
+      background-color: $mainOrange;
+      font-size: rem(7);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      top: 0;
+      right: 0;
+      color: #fff;
+    }
+  }
+  // .cart-header__body
+  &__body {
+    font-size: rem(16);
+    line-height: math.div(20, 16);
+    flex: 0 0 auto;
+  }
+  // .cart-header__summ
+  &__summ {
+    font-weight: 500;
+    &:not(:last-child) {
+      margin-bottom: em(5, 16);
+    }
+  }
+  // .cart-header__link
+  &__link {
+    color: $mainOrange;
+    @media (any-hover: hover) {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+//========================================================================================================================================================
 .catalog-header {
+  position: relative;
+  background-color: $mainDarkColor;
+  color: #fff;
+  // .catalog-header__container
+  &__container {
+  }
+  // .catalog-header__menu
+  &__menu {
+  }
 }
-
+.menu-catalog {
+  // .menu-catalog__list
+  &__list {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+  }
+  // .menu-catalog__item
+  &__item {
+  }
+  // .menu-catalog__link
+  &__link {
+    min-height: rem(70);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0px rem(10);
+    position: relative;
+    transition: color 0.3s ease 0s;
+    &::after {
+      content: "";
+      opacity: 0;
+      visibility: hidden;
+      position: absolute;
+      bottom: 0;
+      left: rem(10);
+      height: 1px;
+      background-color: $mainOrange;
+      width: calc(100% - rem(20));
+    }
+    @media (any-hover: hover) {
+      &:hover {
+        color: $mainOrange;
+        &::after {
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+    }
+  }
+  // .menu-catalog__sub-menu
+  &__sub-menu {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 100%;
+    background-color: $mainDarkColor;
+  }
+}
+.sub-menu-catalog {
+  padding-bottom: rem(30);
+  // .sub-menu-catalog__block
+  &__block {
+    padding: 0px rem(10);
+    display: flex;
+    justify-content: space-between;
+  }
+  // .sub-menu-catalog__column
+  &__column {
+    flex: 1 1 auto;
+    display: grid;
+    gap: 30px;
+  }
+  // .sub-menu-catalog__category
+  &__category {
+    font-size: rem(16);
+    line-height: math.div(20, 16);
+    font-weight: 700;
+    padding: rem(30) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    @media (any-hover: hover) {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  // .sub-menu-catalog__list
+  &__list {
+    display: grid;
+    gap: 20px;
+  }
+  // .sub-menu-catalog__item
+  &__item {
+  }
+  // .sub-menu-catalog__link
+  &__link {
+    font-size: rem(16);
+    line-height: math.div(20, 16);
+    @media (any-hover: hover) {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  // .sub-menu-catalog__all
+  &__all {
+    font-size: rem(16);
+    color: $mainOrange;
+    @media (any-hover: hover) {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+//3:00:53
 //====================================================================================================
 
 //Burger
