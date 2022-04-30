@@ -54,7 +54,7 @@
                 </div>
               </div>
               <div class="main-block__controll controll-main-block">
-                <div class="controll-main-block__dotts"></div>
+                <div class="controll-main-block__dotts dotts"></div>
                 <div class="controll-main-block__fraction fraction-controll">
                   <span class="fraction-controll__current">01</span> /
                   <span class="fraction-controll__all">0</span>
@@ -241,6 +241,46 @@
             </div>
           </div>
         </div>
+      </section>
+      <section class="page__hits-products hits-products">
+        @@include('html/_products-slider.htm',{
+        "title": "Хиты продаж",
+        "moretext": "Перейти в каталог"
+        })
+      </section>
+      <section class="page__new-products new-products">
+        @@include('html/_products-new.htm',{
+        "title": "Новинки"
+        })
+      </section>
+      <section class="page__sale-products sale-products sale-products_no-bottom">
+        @@include('html/_products-slider.htm',{
+        "title": "Акции",
+        "moretext": "Все акции"
+        })
+      </section>
+      <section class="page__sale-products sale-products">
+        @@include('html/_products-slider.htm',{
+        "title": "Акции",
+        "moretext": "Все акции"
+        })
+      </section>
+      <section class="page__new-products new-products page__new-products_no-top">
+        @@include('html/_products-new.htm',{
+        "title": "Новинки"
+        })
+      </section>
+      <section class="page__sale-products sale-products sale-products_no-bottom">
+        @@include('html/_products-slider.htm',{
+        "title": "Акции",
+        "moretext": "Все акции"
+        })
+      </section>
+      <section class="page__sale-products sale-products">
+        @@include('html/_products-slider.htm',{
+        "title": "Акции",
+        "moretext": "Все акции"
+        })
       </section>
     </main>
     @@include('html/_footer.htm',{})
