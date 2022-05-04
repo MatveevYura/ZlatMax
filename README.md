@@ -1,3 +1,3 @@
 # ZlatMax
 
-https://matveevyura.github.io/ZlatMax/dist/home.html
+https://matveevyura.github.io/ZlatMax/dist/index.html
